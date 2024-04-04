@@ -75,6 +75,31 @@ html {
     text-align: center;
   }
 
+  .loginbox {
+    width: 300px;
+    height: 200px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid black; /* Added thicker border */
+    background-color: #8aaaba; /* Changed background color to blue */
+  }
+
+  .loginbox input[type="text"],
+  .loginbox input[type="password"] {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 10px; /* Added padding */
+    box-sizing: border-box; /* Added box-sizing */
+  }
+
+  .loginbox button {
+    width: 100%;
+    padding: 10px; /* Added padding */
+    box-sizing: border-box; /* Added box-sizing */
+  }
+
 
   /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
   @media screen and (max-width:600px) {
