@@ -1,3 +1,9 @@
+/*
+---------------------------------------------- 
+      Central styling file for all pages 
+----------------------------------------------
+
+/* Styles header banner of each paage */
 .home_header {
   display: flex;
   justify-content: center;
@@ -5,14 +11,16 @@
   height: 100px;   
 }
 
+/* Dictates background and font style for each page, specific changes are made inline with HTML or in seperate classes */
 body {
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 12px;
+  font-size: 16px;
   font-style: normal;
   font-weight: 400;
-  background: linear-gradient(to bottom, white, lightblue);
+  background: lightblue;
 }
 
+/* This creates the look for the static navbar  */
 .navbar {
   float: left;
   width: 22.22%;
@@ -20,27 +28,58 @@ body {
   text-align: center;
 }
 
+/* Removes bullet points from static navbar */
 .navbar ul {
   list-style-type: none;
 }
 
+/* Creates styling for spacing between links in navbar */
 .navbar ul li {
+  position: relative;
   border-bottom: 1px dashed black;
   margin-bottom: 10px;
   padding: 10px 0;
 }
 
-.navbar ul li:last-child {
-  border-bottom: none;
+/* Targets elements within hover nav */
+.navbar ul li ul {
+  display: none;
+  position: absolute;
+  left: 100%;
+  top: -15px;
+  padding: 15px;
+  width: 250px;
+  box-sizing: border-box;
+  background: lightblue;
 }
 
+.navbar ul li:hover ul {
+  display: block;
+}
+
+.navbar ul li ul li {
+  border-bottom: 1px dashed black;
+  margin-bottom: 10px;
+  padding: 10px 0;
+  text-align: left;
+}
+
+/* Formattting for central body of text/images on each page */
 .main_body {
   float: left;
   width: 44.44%;
   padding: 15px;
 }
 
+/* Styling for heading/title of each page */
+.main_body h2 {
+    color: rgb(75, 158, 185);
+    font-weight: bold;
+    font-size: 25px;
+}
 
+
+/* Parent class for most pages with text/images on right-hand side */
 .image_box_column {
   float: left;
   width: 22.22%;
@@ -53,11 +92,42 @@ body {
   padding: 5px;
 }
 
+/* Makes paragraph breaks transparent */
 hr {
   border-color: transparent;
 }
 
+/* Styles links in navbar to appear as normal text */
 a {
   color: black;
   text-decoration: none;
+}
+
+/*
+---------------------------------------------- 
+          Styling for specific pages 
+----------------------------------------------
+*/
+
+.image_box_column_the_harbour {
+  float: left;
+  width: 22.22%;
+  padding: 15px;
+  text-align: center;
+  width: 50%;
+  height: auto;
+}
+
+.bottle_works_images {
+  margin-top: 20px;
+  float: right;
+  width: 25%;
+}
+
+.bottle_works_images img {
+  margin-top: 20px;
+  width: 90%;
+  height: auto;
+  display: block;
+  margin-bottom: 20px; 
 }
