@@ -223,3 +223,49 @@ th, td {
 th {
   background-color: lightblue;
 }
+
+/* Styling for login form */
+.login_box {
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  border: 1px solid black;
+  padding: 15px;
+}
+
+.login_box input[type="text"], .login_box input[type="password"] {
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.register_box {
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  border: 1px solid black;
+  padding: 15px;
+}
+
+.register_box input[type="text"], .register_box input[type="password"] {
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.create_post {
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  border: 1px solid black;
+  padding: 15px;
+}
+
+.create_post input[type="text"], .register_box input[type="date"] .register_box input[type="time"] {
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+}
