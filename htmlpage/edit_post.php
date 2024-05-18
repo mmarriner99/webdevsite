@@ -1,4 +1,5 @@
 <?php include 'navbar.php';
+include 'edit_post_process.php';
 if (session_status() == PHP_SESSION_NONE) {
   session_start();
 }
@@ -26,38 +27,40 @@ if (session_status() == PHP_SESSION_NONE) {
     </div>
 
     <div class="main_body">
-      <h2>Create Event</h2>
+      <h2>Edit Post</h2>
       <div class="create_post">
         <?php if (isset($_SESSION["error"])) {
           echo '<div class="error">' . $_SESSION['error'] . '</div>';
           unset($_SESSION['error']);
         }
         ?>
-        <form action="create_post.php" method="post" name="post">
+        <form method="post">
           <label for="title">Title:</label><br>
-          <input type="text" id="title" name="title"><br>
+          <input type="text" id="title" name="title" value="<?php echo $event['title']; ?>"><br>
           <label for="description">Description:</label><br>
-          <textarea id="description" name="description"></textarea><br>
+          <textarea id="description" name="description"><?php echo $event['description']; ?></textarea><br>
           <label for="date">Date:</label><br>
-          <input type="date" id="date" name="date"><br>
+          <input type="date" id="date" name="date" value="<?php echo $event['date']; ?>"><br>
           <label for="time">Time:</label><br>
           <select id="time" name="time">
             <?php
             for ($hours = 0; $hours < 24; $hours++) {
               for ($mins = 0; $mins < 60; $mins += 15) {
                 $time = str_pad($hours, 2, '0', STR_PAD_LEFT) . ':' . str_pad($mins, 2, '0', STR_PAD_LEFT);
-                echo "<option value='{$time}'>{$time}</option>";
+                $selected = ($time == $event['time']) ? 'selected' : '';
+                echo "<option value='{$time}' {$selected}>{$time}</option>";
               }
             }
             ?>
           </select>
           <br>
-          <input type="submit" value="Create Event">
+          <input type="submit" value="Update">
         </form>
       </div>
     </div>
+</div>
 
-  </body>
+</body>
 
 </div>
 

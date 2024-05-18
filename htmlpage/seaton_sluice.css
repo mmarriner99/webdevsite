@@ -33,6 +33,7 @@ body {
 .navbar a:hover {
   color: rgb(21, 122, 180);
 }
+
 /* Removes bullet points from static navbar */
 .navbar ul {
   list-style-type: none;
@@ -168,7 +169,7 @@ a {
 
 .grid-item-roberts-battery img {
   max-width: 100%;
-  max-height: 200px; 
+  max-height: 200px;
   object-fit: contain;
 }
 
@@ -215,11 +216,14 @@ table {
   border-collapse: collapse;
   width: 100%;
 }
-th, td {
+
+th,
+td {
   border: 1px solid black;
   text-align: left;
   padding: 8px;
 }
+
 th {
   background-color: lightblue;
 }
@@ -234,7 +238,8 @@ th {
   padding: 15px;
 }
 
-.login_box input[type="text"], .login_box input[type="password"] {
+.login_box input[type="text"],
+.login_box input[type="password"] {
   display: block;
   width: 100%;
   margin: 0 auto;
@@ -249,7 +254,8 @@ th {
   padding: 15px;
 }
 
-.register_box input[type="text"], .register_box input[type="password"] {
+.register_box input[type="text"],
+.register_box input[type="password"] {
   display: block;
   width: 100%;
   margin: 0 auto;
@@ -264,7 +270,8 @@ th {
   padding: 15px;
 }
 
-.create_post input[type="text"], .register_box input[type="date"] .register_box input[type="time"] {
+.create_post input[type="text"],
+.register_box input[type="date"] .register_box input[type="time"] {
   display: block;
   width: 100%;
   margin: 0 auto;

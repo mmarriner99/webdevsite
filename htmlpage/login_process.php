@@ -1,8 +1,8 @@
-<?php require 'connection.php'; 
+<?php require 'connection.php';
 
 // If a form is submitted this inserts the values into the database
-if($_SERVER["REQUEST_METHOD"] == "POST"){
-  $username = $_POST['username']; 
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $username = $_POST['username'];
   $password = $_POST['password'];
 
   // This is a prepared statement to prevent SQL injection
@@ -12,24 +12,27 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
   $result = $stmt->get_result();
   $user = $result->fetch_assoc();
 
-  // Inital attemtp to verify the password as a PHP hashed password, when new users create an account their plain text password is hashed
+  // Verifies the password as a PHP hashed password, when new users create an account their plain text password is hashed
   $isPasswordCorrect = password_verify($password, $user['password']);
 
-  // If that fails, compare the plain text password with the password stored in the database. This is for my initial entry into the database, will also likely serve as admin
-  if(!$isPasswordCorrect){
-    $isPasswordCorrect = $password == $user['password'];
-  }
-
-  if($user && $isPasswordCorrect){
+  if ($user && $isPasswordCorrect) {
     // User authenticated successfully
     // Redirect to the desired page
     // Set session variable to indicate user is logged in
     $_SESSION['username'] = $username;
+    $_SESSION['user_id'] = $user['user_id'];
     $_SESSION['logged_in'] = true;
-    header('Location: user_area.php');
+
+    // Checks if user is an admin and assigns the session variable which allows for admin privileges
+    if ($user['is_admin'] == 1) {
+      $_SESSION['admin_welcome'] = true;
+      $_SESSION['admin'] = true;
+    }
+
+    header('Location: user_events.php');
     exit;
-  }else{
-    // We use the /?error=1 to link to our PHP below, which will GET and print it if we have failed to login
+  } else {
+    // Prints an error message if the username or password is invalid
     $_SESSION['error'] = "Invalid username or password";
     header("Location: login.php");
   }

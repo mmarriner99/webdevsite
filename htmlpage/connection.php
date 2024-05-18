@@ -4,12 +4,12 @@ if (session_status() == PHP_SESSION_NONE) {
 }
 
 // Establish connection to daatabase
-$host = '213.171.200.31'; 
+$host = '213.171.200.31';
 $dbname = 'mmarriner';
-$username = 'mmarriner'; 
-$password = 'Password20*'; 
+$username = 'mmarriner';
+$password = 'Password20*';
 $conn = new mysqli($host, $username, $password, $dbname);
 
-if ($conn->connect_error){
+if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
